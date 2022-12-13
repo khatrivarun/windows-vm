@@ -1,0 +1,25 @@
+- name: Install ASP.NET Core Runtime 6.0.2
+  hosts: windows
+  tasks:
+    - name: Download Core Runtime 6.0.2 Installation File to specified path
+      ansible.windows.win_get_url:
+        url: https://download.visualstudio.microsoft.com/download/pr/efa32b7a-6eec-4d97-9cdc-c7336a29a749/3df4296170397cf60884dae1be3d103b/windowsdesktop-runtime-6.0.2-win-x64.exe
+        dest: C:\Users\khatrivarun_dev\dotnetruntime.exe
+
+    - name: Run Installation Script Quietly
+      ansible.windows.win_powershell:
+        script: |
+          C:\Users\khatrivarun_dev\dotnetruntime.exe /q
+
+- name: Install ASP.NET Core Windows Hosting Bundle 6.0.2
+  hosts: windows
+  tasks:
+    - name: Download Core Runtime 6.0.2 Installation File to specified path
+      ansible.windows.win_get_url:
+        url: https://download.visualstudio.microsoft.com/download/pr/bff26878-9597-4390-a4ef-5bd818ba41a0/a7a8114362771690ec52e6fd09236ab8/dotnet-hosting-6.0.2-win.exe
+        dest: C:\Users\khatrivarun_dev\dotnethosting.exe
+
+    - name: Run Installation Script Quietly
+      ansible.windows.win_powershell:
+        script: |
+          C:\Users\khatrivarun_dev\dotnethosting.exe /q
