@@ -2,7 +2,7 @@
 ansible-engine ansible_connection=local
 
 [windows]
-34.93.204.180
+windows-vm ansible_host=34.100.231.33
 
 [windows:vars]
 ansible_connection=winrm
